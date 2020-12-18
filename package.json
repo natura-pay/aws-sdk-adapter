@@ -1,0 +1,89 @@
+{
+  "name": "@natura/aws-sdk-ioc",
+  "version": "1.0.0",
+  "description": "An Inversion Control of depency to aws-sdk lib",
+  "author": "Rodrigo Pinheiro de Almeida <rpinheiroalmeida@gmail.com>",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "keywords": [
+    "AWS",
+    "aws-sdk",
+    "ioc"
+  ],
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "lint": "tslint ./lib/**/*.ts ./test/**/*.ts",
+    "lint:fix": "tslint --fix ./lib/**/*.ts ./test/**/*.ts -t verbose",
+    "postversion": "git push origin master",
+    "pretest": "cross-env NODE_ENV=test npm run build && npm run lint",
+    "test": "jest --config ./test/jest.config.js --coverage --silent test/unit",
+    "test:integration": "sh ./scripts/up-localstack.sh && cross-env NODE_ENV=test jest --config ./test/jest.config.js --silent test/integration",
+    "test:unit": "jest --config ./test/jest.config.js --coverage --silent test/unit",
+    "test:watch": "jest --config ./test/jest.config.js --watch --silent test/unit",
+    "test:coverage": "nyc npm test",
+    "test:mutation": "stryker run ./test/stryker.conf.js",
+    "stryker:init": "stryker init",
+    "tsc": "tsc"
+  },
+  "nyc": {
+    "include": [
+      "lib/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "json",
+      "html"
+    ],
+    "report-dir": "./reports/coverage",
+    "sourceMap": true,
+    "instrument": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/natura-cosmeticos/aws-sdk-ioc"
+  },
+  "bugs": {
+    "url": "https://github.com/natura-cosmeticos/aws-sdk-ioc/issues"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@stryker-mutator/core": "^3.2.4",
+    "@stryker-mutator/jest-runner": "^3.2.4",
+    "@stryker-mutator/typescript": "^3.2.4",
+    "@types/jest": "^24.0.21",
+    "codecov": "^3.2.0",
+    "cross-env": "^5.2.0",
+    "jest": "^26.0.1",
+    "jest-sonar-reporter": "^2.0.0",
+    "nyc": "^15.1.0",
+    "proxyquire": "^2.1.0",
+    "rimraf": "^2.7.1",
+    "source-map-support": "^0.5.10",
+    "ts-jest": "^26.1.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.648.0",
+    "typescript-ioc": "^3.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+reports
+*.serverless
+.vscode
+.DS_Store
+.stryker-tmp
