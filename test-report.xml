@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts">
-    <testCase name="SQSAdapter deleteMessage should successfully resolve promise and delete message from SQS" duration="3"/>
-    <testCase name="SQSAdapter deleteMessage should raise an error when the promise is rejected" duration="2"/>
-    <testCase name="SQSAdapter sendMessage should successfully resolve promise and send message to SQS" duration="2">
-      <failure message="Error: expect(received).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(received).toHaveBeenCalledTimes(expected)
-
-Matcher error: received value must be a mock or spy function
-
-Received has value: undefined
-    at Object.<anonymous> (/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts:110:36)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)]]></failure>
-    </testCase>
-    <testCase name="SQSAdapter sendMessage should raise an error when the promise is rejected" duration="7">
-      <failure message="Error: expect(received).toHaveBeenCalledTimes(expected)"><![CDATA[Error: expect(received).toHaveBeenCalledTimes(expected)
-
-Matcher error: received value must be a mock or spy function
-
-Received has value: undefined
-    at Object.<anonymous> (/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts:123:36)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)]]></failure>
-    </testCase>
+    <testCase name="SQSAdapter deleteMessage should successfully resolve promise and delete message from SQS" duration="1"/>
+    <testCase name="SQSAdapter deleteMessage should raise an error when the promise is rejected" duration="3"/>
+    <testCase name="SQSAdapter sendMessage should successfully resolve promise and send message to SQS" duration="0"/>
+    <testCase name="SQSAdapter sendMessage should raise an error when the promise is rejected" duration="1"/>
   </file>
 </testExecutions>
