@@ -9,14 +9,14 @@
   "keywords": [
     "AWS",
     "aws-sdk",
-    "ioc"
+    "adapter"
   ],
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf dist",
     "lint": "tslint ./lib/**/*.ts ./test/**/*.ts",
     "lint:fix": "tslint --fix ./lib/**/*.ts ./test/**/*.ts -t verbose",
-    "postversion": "git push origin master",
+    "postversion": "git push origin main",
     "pretest": "cross-env NODE_ENV=test npm run build && npm run lint",
     "test": "jest --config ./test/jest.config.js --coverage --silent test/unit",
     "test:integration": "sh ./scripts/up-localstack.sh && cross-env NODE_ENV=test jest --config ./test/jest.config.js --silent test/integration",
