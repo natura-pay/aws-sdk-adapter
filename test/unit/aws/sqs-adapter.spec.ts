@@ -1,6 +1,5 @@
 import { Container, Snapshot } from 'typescript-ioc';
 import { SQS } from 'aws-sdk';
-import { AwsError } from '../../../lib/erros';
 import { SQSAdapter } from '../../../lib/aws/sqs-adapter';
 import { mockDeleteMessage, mockSQSPromise } from '../../../__mocks__/aws-sdk/sqs';
 
@@ -32,8 +31,8 @@ describe('SQSAdapter', () => {
                 { promise: jest.fn().mockResolvedValue({}) }
             );
             const receipt = '????';
-            const arn = 'arn:aws:sqs:us-east-1:046038004735:financial-services-payment-boleto-messages-registry-response-dev';
-            const expectedUrl = 'https://sqs.us-east-1.amazonaws.com/046038004735/financial-services-payment-boleto-messages-registry-response-dev';
+            const arn = 'arn:aws:sqs:us-east-1:1111111111:deleted-queue-dev';
+            const expectedUrl = 'https://sqs.us-east-1.amazonaws.com/1111111111/deleted-queue-dev';
 
             await sqsAdapter.deleteMessage(arn, receipt);
 
@@ -48,7 +47,7 @@ describe('SQSAdapter', () => {
             mockSQSPromise.mockRejectedValue(new Error('Unexpected error'));
             await expect(
                 sqsAdapter.deleteMessage('', '')
-            ).rejects.toThrowError(AwsError);
+            ).rejects.toThrowError(Error);
         });
     });
 
@@ -61,13 +60,9 @@ describe('SQSAdapter', () => {
 
             const messageBody = { key: 'value' };
             const queueUrl = 'sqs url';
-            const expectedParams = {
-                MessageBody: JSON.stringify(messageBody),
-                QueueUrl: queueUrl
-            };
-
             const expectedResult = {
-                messageId: mockedSendMessageResult.MessageId,
+                MD5OfMessageBody: 'Body MD5',
+                MessageId: 'Returned MessageId',
                 createdAt: NOW.toISOString()
             };
 
@@ -82,7 +77,7 @@ describe('SQSAdapter', () => {
 
         it('should raise an error when the promise is rejected', async () => {
             mockSQSPromise.mockRejectedValue(new Error('Unexpected error'));
-            await expect(sqsAdapter.sendMessage('', '')).rejects.toThrowError(AwsError);
+            await expect(sqsAdapter.sendMessage('', '')).rejects.toThrowError(Error);
         });
 
     });

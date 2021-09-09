@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts">
-    <testCase name="SQSAdapter deleteMessage should successfully resolve promise and delete message from SQS" duration="1"/>
-    <testCase name="SQSAdapter deleteMessage should raise an error when the promise is rejected" duration="3"/>
-    <testCase name="SQSAdapter sendMessage should successfully resolve promise and send message to SQS" duration="0"/>
-    <testCase name="SQSAdapter sendMessage should raise an error when the promise is rejected" duration="1"/>
+  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/integration/dynamodb.spec.ts">
+    <testCase name="DynamoDB should put an item" duration="147"/>
+    <testCase name="DynamoDB should query an item" duration="31"/>
+    <testCase name="DynamoDB should update an item" duration="77"/>
+    <testCase name="DynamoDB should query an item after update" duration="26"/>
   </file>
 </testExecutions>

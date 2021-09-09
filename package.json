@@ -1,5 +1,5 @@
 {
-  "name": "@natura/aws-sdk-ioc",
+  "name": "@natura-pay/aws-sdk-adapter",
   "version": "1.0.0",
   "description": "An Inversion Control of depency to aws-sdk lib",
   "author": "Rodrigo Pinheiro de Almeida <rpinheiroalmeida@gmail.com>",
@@ -77,11 +77,8 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3"
-  },
-  "dependencies": {
-    "aws-sdk": "^2.648.0",
-    "typescript-ioc": "^3.2.1"
+    "typescript": "^3.3.3",
+    "aws-sdk": "^2.648.0"
   },
   "publishConfig": {
     "access": "public"
