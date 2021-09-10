@@ -17,7 +17,7 @@ describe('DynamodbAdapter', () => {
 
     beforeAll(() => {
         spyOn(global, 'Date').and.callFake(() => NOW);
-        dynamodbAdapter = new DynamoDBAdapter('us-east-1', dynamoDBConfig);
+        dynamodbAdapter = new DynamoDBAdapter(dynamoDBConfig, { region: 'us-east-1' });
     });
 
     afterEach(() => {

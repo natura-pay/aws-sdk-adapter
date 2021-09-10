@@ -1,12 +1,12 @@
 import { SQS } from 'aws-sdk';
+import { AwsConfig } from './aws-config';
 export class SQSAdapter {
 
     private sqsClient: SQS;
 
-    constructor(region?: string) {
-        const awsConfig = { region: region || process.env['AWS_REGION'] };
+    constructor(awsConfig?: AwsConfig) {
 
-        this.sqsClient = new SQS(awsConfig);
+        this.sqsClient = new SQS({ region: awsConfig?.region || process.env['AWS_REGION'] });
     }
 
     public async deleteMessage(queueArn: string, receiptHandle: string): Promise<any> {

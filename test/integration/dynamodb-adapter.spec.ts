@@ -15,7 +15,7 @@ describe('DynamoDB', () => {
         ttl: 100,
     } as DynamoDBConfig;
 
-    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter('us-east-1', dynamoDBConfig);
+    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter(dynamoDBConfig, { region: 'us-east-1' });
     const NOW = new Date('2021-09-09T00:00:00.00Z');
     const resetDateMock = mockDate(NOW);
 
