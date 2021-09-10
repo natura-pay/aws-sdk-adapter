@@ -1,28 +1,21 @@
-import { Container, Snapshot } from 'typescript-ioc';
 import { SQS } from 'aws-sdk';
 import { SQSAdapter } from '../../../lib/aws/sqs-adapter';
 import { mockDeleteMessage, mockSQSPromise } from '../../../__mocks__/aws-sdk/sqs';
 
 describe('SQSAdapter', () => {
 
-    let snapshot: Snapshot;
     let sqsAdapter: SQSAdapter;
     const NOW = new Date();
 
 
     beforeAll(() => {
-        snapshot = Container.snapshot();
-        sqsAdapter = Container.get(SQSAdapter);
+        sqsAdapter = new SQSAdapter();
         spyOn(global, 'Date').and.callFake(() => NOW);
     });
 
     beforeEach(() => {
         mockSQSPromise.mockClear();
         mockDeleteMessage.mockClear();
-    });
-
-    afterAll(() => {
-        snapshot.restore();
     });
 
     describe('deleteMessage', () => {
