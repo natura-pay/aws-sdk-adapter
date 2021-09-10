@@ -10,18 +10,18 @@ import { mockDate } from "../mock-data";
 describe('DynamoDB', () => {
 
     const dynamoDBConfig: DynamoDBConfig = {
+        endpointUrl: 'http://localhost:4566',
         tableName: 'test-dev',
         ttl: 100,
-        endpointUrl: 'http://localhost:4566'
     } as DynamoDBConfig;
 
-    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter('us-east-1', dynamoDBConfig)
+    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter('us-east-1', dynamoDBConfig);
     const NOW = new Date('2021-09-09T00:00:00.00Z');
-    let resetDateMock = mockDate(NOW);
+    const resetDateMock = mockDate(NOW);
 
     afterAll(() => {
         resetDateMock();
-    })
+    });
 
 
 
@@ -29,8 +29,8 @@ describe('DynamoDB', () => {
     it('should put an item', async () => {
 
         const item = {
+            Value: '1-Value',
             messageId: '1',
-            Value: '1-Value'
         };
 
         const response = await dynamoDBAdapter.put(item);
@@ -44,8 +44,8 @@ describe('DynamoDB', () => {
 
     it('should query an item', async () => {
         const filter = {
-            KeyConditionExpression: 'messageId = :key',
             ExpressionAttributeValues: { ':key': '1' },
+            KeyConditionExpression: 'messageId = :key',
         };
 
         const item = await dynamoDBAdapter.query(filter);
@@ -64,16 +64,16 @@ describe('DynamoDB', () => {
 
     it('should update an item', async () => {
         const item = {
-            Key: {
-                messageId: '1',
-            },
-            UpdateExpression: 'set #Value = :newValue',
             ExpressionAttributeNames: {
                 '#Value': 'Value'
             },
             ExpressionAttributeValues: {
                 ':newValue': '2-Value'
-            }
+            },
+            Key: {
+                messageId: '1',
+            },
+            UpdateExpression: 'set #Value = :newValue',
         };
 
         const response = await dynamoDBAdapter.update(item);
@@ -86,11 +86,9 @@ describe('DynamoDB', () => {
     });
 
     it('should query an item after update', async () => {
-        const NOW = new Date();
-        spyOn(global, 'Date').and.callFake(() => NOW);
         const filter = {
-            KeyConditionExpression: 'messageId = :key',
             ExpressionAttributeValues: { ':key': '1' },
+            KeyConditionExpression: 'messageId = :key',
         };
 
         const item = await dynamoDBAdapter.query(filter);

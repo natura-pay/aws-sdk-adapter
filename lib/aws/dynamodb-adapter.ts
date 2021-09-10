@@ -11,11 +11,11 @@ export class DynamoDBAdapter {
 
     constructor(region: string, dynamodbConfig: DynamoDBConfig) {
         const config = {
-            region: region,
-            endpoint: dynamodbConfig.endpointUrl,
             convertEmptyValues: true,
+            endpoint: dynamodbConfig.endpointUrl,
             httpOptions: dynamodbConfig.httpOptions,
-            maxRetries: dynamodbConfig.maxRetries
+            maxRetries: dynamodbConfig.maxRetries,
+            region: region,
         };
 
         this.tableName = dynamodbConfig.tableName;
@@ -31,7 +31,7 @@ export class DynamoDBAdapter {
                 ttl: (new Date()).getTime() + this.ttl,
             },
             TableName: this.tableName
-        }
+        };
 
         return await this.documentClient.put(params).promise();
     }
@@ -40,7 +40,7 @@ export class DynamoDBAdapter {
         const params: DynamoDB.UpdateItemInput = {
             TableName: this.tableName,
             ...item
-        }
+        };
         return await this.documentClient.update(params).promise();
     }
 
