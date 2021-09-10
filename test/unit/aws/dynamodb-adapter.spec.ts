@@ -9,6 +9,7 @@ describe('DynamodbAdapter', () => {
 
     let dynamodbAdapter: DynamoDBAdapter;
     const dynamoDBConfig = {
+        region: 'us-east-1',
         tableName: 'test',
         ttl: 10,
     } as DynamoDBConfig;
@@ -17,7 +18,7 @@ describe('DynamodbAdapter', () => {
 
     beforeAll(() => {
         spyOn(global, 'Date').and.callFake(() => NOW);
-        dynamodbAdapter = new DynamoDBAdapter(dynamoDBConfig, { region: 'us-east-1' });
+        dynamodbAdapter = new DynamoDBAdapter(dynamoDBConfig);
     });
 
     afterEach(() => {
