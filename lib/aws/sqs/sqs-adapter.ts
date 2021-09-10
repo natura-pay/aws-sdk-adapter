@@ -1,5 +1,5 @@
 import { SQS } from 'aws-sdk';
-import { AwsConfig } from './aws-config';
+import { AwsConfig } from '../aws-config';
 export class SQSAdapter {
 
     private sqsClient: SQS;
