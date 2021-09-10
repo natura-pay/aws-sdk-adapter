@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/integration/dynamodb-adapter.spec.ts">
-    <testCase name="DynamoDB should put an item" duration="212"/>
-    <testCase name="DynamoDB should query an item" duration="122"/>
-    <testCase name="DynamoDB should update an item" duration="96"/>
-    <testCase name="DynamoDB should query an item after update" duration="29"/>
+    <testCase name="DynamoDB should put an item" duration="128"/>
+    <testCase name="DynamoDB should query an item" duration="27"/>
+    <testCase name="DynamoDB should update an item" duration="133"/>
+    <testCase name="DynamoDB should query an item after update" duration="22"/>
   </file>
 </testExecutions>

@@ -1,6 +1,6 @@
 import { DynamoDB } from 'aws-sdk';
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
-import { AwsConfig } from './aws-config';
+import { AwsConfig } from '../aws-config';
 import { DynamoDBConfig } from './dynamodb-config';
 
 

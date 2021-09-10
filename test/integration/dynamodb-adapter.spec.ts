@@ -3,8 +3,8 @@
 jest.deepUnmock('aws-sdk');
 jest.unmock('aws-sdk/clients/dynamodb');
 
-import { DynamoDBAdapter } from "../../lib/aws/dynamodb-adapter";
-import { DynamoDBConfig } from "../../lib/aws/dynamodb-config";
+import { DynamoDBAdapter } from "../../lib/aws/dynamodb/dynamodb-adapter";
+import { DynamoDBConfig } from "../../lib/aws/dynamodb/dynamodb-config";
 import { mockDate } from "../mock-data";
 
 describe('DynamoDB', () => {
@@ -22,9 +22,6 @@ describe('DynamoDB', () => {
     afterAll(() => {
         resetDateMock();
     });
-
-
-
 
     it('should put an item', async () => {
 
