@@ -1,7 +1,6 @@
-export interface DynamoDBConfig {
+import { BaseConfigurationOptions } from "../base-configuration";
+
+export interface DynamoDBConfig extends BaseConfigurationOptions {
     tableName: string;
     ttl: number;
-    endpointUrl?: string;
-    maxRetries?: number;
-    httpOptions?: { [key: string]: any };
 }

@@ -10,12 +10,13 @@ import { mockDate } from "../mock-data";
 describe('DynamoDB', () => {
 
     const dynamoDBConfig: DynamoDBConfig = {
-        endpointUrl: 'http://localhost:4566',
+        endpoint: 'http://localhost:4566',
         tableName: 'test-dev',
         ttl: 100,
+        region: 'us-east-1',
     } as DynamoDBConfig;
 
-    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter(dynamoDBConfig, { region: 'us-east-1' });
+    const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter(dynamoDBConfig);
     const NOW = new Date('2021-09-09T00:00:00.00Z');
     const resetDateMock = mockDate(NOW);
 

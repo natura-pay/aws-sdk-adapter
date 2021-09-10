@@ -1,6 +1,5 @@
 import { DynamoDB } from 'aws-sdk';
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
-import { AwsConfig } from '../aws-config';
 import { DynamoDBConfig } from './dynamodb-config';
 
 
@@ -10,19 +9,10 @@ export class DynamoDBAdapter {
     private tableName: string;
     private ttl: number;
 
-    constructor(dynamodbConfig: DynamoDBConfig, awsConfig?: AwsConfig) {
-        const config = {
-            convertEmptyValues: true,
-            endpoint: dynamodbConfig.endpointUrl,
-            httpOptions: dynamodbConfig.httpOptions,
-            maxRetries: dynamodbConfig.maxRetries,
-            region: awsConfig?.region || process.env['AWS_REGION'],
-        };
-
+    constructor(dynamodbConfig: DynamoDBConfig) {
         this.tableName = dynamodbConfig.tableName;
         this.ttl = dynamodbConfig.ttl;
-        this.documentClient = new DocumentClient(config);
-
+        this.documentClient = new DocumentClient(dynamodbConfig);
     }
 
     public async put(item: any) {
