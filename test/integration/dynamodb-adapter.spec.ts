@@ -11,9 +11,9 @@ describe('DynamoDB', () => {
 
     const dynamoDBConfig: DynamoDBConfig = {
         endpoint: 'http://localhost:4566',
+        region: 'us-east-1',
         tableName: 'test-dev',
         ttl: 100,
-        region: 'us-east-1',
     } as DynamoDBConfig;
 
     const dynamoDBAdapter: DynamoDBAdapter = new DynamoDBAdapter(dynamoDBConfig);

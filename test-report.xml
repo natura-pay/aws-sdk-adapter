@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/dynamodb-adapter.spec.ts">
-    <testCase name="DynamodbAdapter put should successfully put an item in DynamoDB" duration="3"/>
-    <testCase name="DynamodbAdapter update should successfully update an item in DynamoDB" duration="1"/>
-    <testCase name="DynamodbAdapter query should query an item woth successfull" duration="1"/>
-  </file>
-  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts">
-    <testCase name="SQSAdapter deleteMessage should successfully resolve promise and delete message from SQS" duration="3"/>
-    <testCase name="SQSAdapter deleteMessage should raise an error when the promise is rejected" duration="1"/>
-    <testCase name="SQSAdapter sendMessage should successfully resolve promise and send message to SQS" duration="0"/>
-    <testCase name="SQSAdapter sendMessage should raise an error when the promise is rejected" duration="9"/>
+  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/integration/dynamodb-adapter.spec.ts">
+    <testCase name="DynamoDB should put an item" duration="135"/>
+    <testCase name="DynamoDB should query an item" duration="27"/>
+    <testCase name="DynamoDB should update an item" duration="72"/>
+    <testCase name="DynamoDB should query an item after update" duration="27"/>
   </file>
 </testExecutions>
