@@ -9,7 +9,7 @@ describe('SQSAdapter', () => {
 
 
     beforeAll(() => {
-        sqsAdapter = new SQSAdapter();
+        sqsAdapter = new SQSAdapter({ region: 'us-east-1' });
         spyOn(global, 'Date').and.callFake(() => NOW);
     });
 
