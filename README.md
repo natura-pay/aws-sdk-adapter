@@ -1,2 +1,2 @@
-# aws-sdk-adapter
+# AWS SDK ADAPTER
 Adding IOC in the aws-sdk lib.
