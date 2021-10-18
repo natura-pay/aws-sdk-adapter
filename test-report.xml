@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/sqs-adapter.spec.ts">
-    <testCase name="SQSAdapter deleteMessage should successfully resolve promise and delete message from SQS" duration="3"/>
-    <testCase name="SQSAdapter deleteMessage should raise an error when the promise is rejected" duration="1"/>
-    <testCase name="SQSAdapter sendMessage should successfully resolve promise and send message to SQS" duration="2"/>
-    <testCase name="SQSAdapter sendMessage should raise an error when the promise is rejected" duration="1"/>
-  </file>
-  <file path="/Users/rpinheir/Projects/natura/payment/aws-sdk-ioc/test/unit/aws/dynamodb-adapter.spec.ts">
-    <testCase name="DynamodbAdapter put should successfully put an item in DynamoDB" duration="3"/>
-    <testCase name="DynamodbAdapter update should successfully update an item in DynamoDB" duration="1"/>
-    <testCase name="DynamodbAdapter query should query an item woth successfull" duration="1"/>
+  <file path="/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/test/integration/dynamodb-adapter.spec.ts">
+    <testCase name="DynamoDB should put an item" duration="5008">
+      <failure message=": Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Error: "><![CDATA[: Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000 ms timeout specified by jest.setTimeout.Error: 
+    at new Spec (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)
+    at new Spec (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)
+    at specFactory (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)
+    at Env.it (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)
+    at Env.it (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)
+    at it (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)
+    at Suite.<anonymous> (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/test/integration/dynamodb-adapter.spec.ts:27:5)
+    at addSpecsToSuite (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)
+    at Env.describe (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)
+    at describe (/Users/chicao/Projects/clients/natura/src/libs/aws-sdk-adapter/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)]]></failure>
+    </testCase>
+    <testCase name="DynamoDB should query an item" duration="455">
+      <failure message="CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTUNREACH 169.254.169.254:80 - Local (192.168.5.144:51106)"><![CDATA[CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTUNREACH 169.254.169.254:80 - Local (192.168.5.144:51106)
+    at internalConnect (net.js:923:16)
+    at defaultTriggerAsyncIdScope (internal/async_hooks.js:364:12)
+    at net.js:1011:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)]]></failure>
+      <failure message="CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTUNREACH 169.254.169.254:80 - Local (192.168.5.144:51106)"><![CDATA[CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTUNREACH 169.254.169.254:80 - Local (192.168.5.144:51106)
+    at internalConnect (net.js:923:16)
+    at defaultTriggerAsyncIdScope (internal/async_hooks.js:364:12)
+    at net.js:1011:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)]]></failure>
+    </testCase>
+    <testCase name="DynamoDB should update an item" duration="7">
+      <failure message="CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTDOWN 169.254.169.254:80 - Local (192.168.5.144:51108)"><![CDATA[CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTDOWN 169.254.169.254:80 - Local (192.168.5.144:51108)
+    at internalConnect (net.js:923:16)
+    at defaultTriggerAsyncIdScope (internal/async_hooks.js:364:12)
+    at net.js:1011:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)]]></failure>
+    </testCase>
+    <testCase name="DynamoDB should query an item after update" duration="3">
+      <failure message="CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTDOWN 169.254.169.254:80 - Local (192.168.5.144:51110)"><![CDATA[CredentialsError: Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1Error: connect EHOSTDOWN 169.254.169.254:80 - Local (192.168.5.144:51110)
+    at internalConnect (net.js:923:16)
+    at defaultTriggerAsyncIdScope (internal/async_hooks.js:364:12)
+    at net.js:1011:9
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)]]></failure>
+    </testCase>
   </file>
 </testExecutions>
