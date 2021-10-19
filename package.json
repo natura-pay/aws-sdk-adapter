@@ -46,6 +46,11 @@
     "sourceMap": true,
     "instrument": true
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/natura-cosmeticos/aws-sdk-ioc"
