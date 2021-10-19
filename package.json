@@ -1,6 +1,6 @@
 {
   "name": "@natura-pay/aws-sdk-adapter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Inversion Control of depency to aws-sdk lib",
   "author": "Rodrigo Pinheiro de Almeida <rpinheiroalmeida@gmail.com>",
   "license": "MIT",
