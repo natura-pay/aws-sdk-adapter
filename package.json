@@ -53,6 +53,7 @@
   "bugs": {
     "url": "https://github.com/natura-cosmeticos/aws-sdk-ioc/issues"
   },
+  "homepage": "https://github.com/natura-cosmeticos/aws-sdk-ioc#readme",
   "directories": {
     "lib": "dist"
   },
