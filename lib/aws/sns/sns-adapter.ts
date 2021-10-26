@@ -1,7 +1,5 @@
 import { SNS } from 'aws-sdk';
 import { SNSConfig } from './sns-config';
-
-
 export class SNSAdapter {
 
     private snsClient: SNS;
