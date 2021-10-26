@@ -1,7 +1,7 @@
 
-import { DynamoDBAdapter } from '../../../lib/aws/dynamodb/dynamodb-adapter'
-import { DynamoDBConfig } from '../../../lib/aws/dynamodb/dynamodb-config';
-import { awsSdkPromiseResponse, DocumentClient } from '../../../__mocks__/aws-sdk/clients/dynamodb';
+import { DynamoDBAdapter } from '../../../../lib/aws/dynamodb/dynamodb-adapter'
+import { DynamoDBConfig } from '../../../../lib/aws/dynamodb/dynamodb-config';
+import { awsSdkPromiseResponse, DocumentClient } from '../../../../__mocks__/aws-sdk/clients/dynamodb';
 
 describe('DynamodbAdapter', () => {
 

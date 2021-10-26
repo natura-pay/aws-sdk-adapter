@@ -1,6 +1,6 @@
 import { SQS } from 'aws-sdk';
-import { SQSAdapter } from '../../../lib/aws/sqs/sqs-adapter';
-import { mockDeleteMessage, mockSQSPromise } from '../../../__mocks__/aws-sdk/sqs';
+import { SQSAdapter } from '../../../../lib/aws/sqs/sqs-adapter';
+import { mockDeleteMessage, mockSQSPromise } from '../../../../__mocks__/aws-sdk/sqs';
 
 describe('SQSAdapter', () => {
 

@@ -1,7 +1,7 @@
-import { BaseConfigurationOptions } from '../../../lib/aws/base-configuration';
-import { SSMAdapter } from '../../../lib/aws/ssm/ssm-adapter';
-import { SSM } from '../../../__mocks__/aws-sdk';
-import { mockSSMReturn } from '../../../__mocks__/aws-sdk/ssm';
+import { BaseConfigurationOptions } from '../../../../lib/aws/base-configuration';
+import { SSMAdapter } from '../../../../lib/aws/ssm/ssm-adapter';
+import { SSM } from '../../../../__mocks__/aws-sdk';
+import { mockSSMReturn } from '../../../../__mocks__/aws-sdk/ssm';
 
 
 describe('SSMAdapter', () => {
