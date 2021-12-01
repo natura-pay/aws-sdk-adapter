@@ -16,10 +16,11 @@ export class DynamoDBAdapter {
     }
 
     public async put(item: any) {
+        const currentDateInSeconds = Math.floor((new Date()).getTime() / 1000) + 10;
         const params: DynamoDB.PutItemInput = {
             Item: {
                 ...item,
-                ttl: (new Date()).getTime() + this.ttl,
+                ttl: currentDateInSeconds + this.ttl,
             },
             TableName: this.tableName
         };
