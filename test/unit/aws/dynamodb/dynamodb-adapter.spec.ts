@@ -43,7 +43,9 @@ describe('DynamodbAdapter', () => {
             expect(db.put).toHaveBeenCalledWith({
                 Item: {
                     key: "value",
-                    ttl: NOW.getTime() + dynamoDBConfig.ttl,
+                    ttl: Math.floor(NOW.getTime() / 1000)
+                        + 10
+                        + dynamoDBConfig.ttl,
                 },
                 TableName: "test"
             });
