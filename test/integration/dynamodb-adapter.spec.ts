@@ -54,7 +54,9 @@ describe('DynamoDB', () => {
             Items: [{
                 Value: '1-Value',
                 messageId: '1',
-                ttl: NOW.getTime() + 100
+                ttl: Math.floor(NOW.getTime() / 1000)
+                    + 10
+                    + 100
             }],
             ScannedCount: 1,
         });
@@ -97,7 +99,9 @@ describe('DynamoDB', () => {
             Items: [{
                 Value: '2-Value',
                 messageId: '1',
-                ttl: NOW.getTime() + 100
+                ttl: Math.floor(NOW.getTime() / 1000)
+                    + 10
+                    + 100
             }],
             ScannedCount: 1,
         });
