@@ -36,6 +36,23 @@ describe('SQSAdapter', () => {
             });
         });
 
+        it('should successfully resolve promise and delete message from SQS when custom queue url is provided', async () => {
+            mockSQSPromise.mockReturnValue(
+                { promise: jest.fn().mockResolvedValue({}) }
+            );
+            const receipt = '????';
+            const arn = 'arn:aws:sqs:us-east-1:000000000:custom-deleted-queue-dev';
+            const customQueueUrl = 'https://sqs.us-east-1.amazonaws.com/000000000/custom-deleted-queue-dev';
+
+            await sqsAdapter.deleteMessage(arn, receipt, customQueueUrl);
+
+            expect(mockSQSPromise).toHaveBeenCalledTimes(1);
+            expect(mockDeleteMessage).toHaveBeenCalledWith({
+                QueueUrl: customQueueUrl,
+                ReceiptHandle: receipt,
+            });
+        });
+
         it('should raise an error when the promise is rejected', async () => {
             mockSQSPromise.mockRejectedValue(new Error('Unexpected error'));
             await expect(

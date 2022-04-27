@@ -16,8 +16,9 @@ module.exports = {
     coverageDirectory: 'reports/coverage',
     testResultsProcessor: 'jest-sonar-reporter',
     collectCoverageFrom: [
-        'src/**/*.{ts,tsx,js,jsx}',
-        '!src/**/*.d.ts',
+        'lib/**/*.{ts,tsx,js,jsx}',
+        '!lib/**/*.d.ts',
+        '!lib/index.ts'
     ],
     coverageThreshold: {
         global: {

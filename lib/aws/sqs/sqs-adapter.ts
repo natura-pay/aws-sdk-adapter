@@ -9,9 +9,9 @@ export class SQSAdapter {
         this.sqsClient = new SQS(configuration);
     }
 
-    public async deleteMessage(queueArn: string, receiptHandle: string): Promise<any> {
+    public async deleteMessage(queueArn: string, receiptHandle: string, customQueueUrl?: string): Promise<any> {
 
-        const queueUrl = this.buildQueueUrlFromArn(queueArn);
+        const queueUrl = customQueueUrl ?? this.buildQueueUrlFromArn(queueArn);
         return await this.sqsClient.deleteMessage({
             QueueUrl: queueUrl,
             ReceiptHandle: receiptHandle,
