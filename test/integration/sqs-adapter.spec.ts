@@ -8,8 +8,8 @@ import { SQSAdapter } from '../../lib/aws/sqs/sqs-adapter';
 describe('SQS', () => {
 
     const sqsAdapter = new SQSAdapter({
-        region: 'us-east-1',
-        endpoint: 'http://0.0.0.0:4566'
+        endpoint: 'http://0.0.0.0:4566',
+        region: 'us-east-1'
     });
 
     describe('deleteMessage', () => {
