@@ -7,7 +7,10 @@ import { SQSAdapter } from '../../lib/aws/sqs/sqs-adapter';
 
 describe('SQS', () => {
 
-    const sqsAdapter = new SQSAdapter({endpoint: 'http://0.0.0.0:4566'});
+    const sqsAdapter = new SQSAdapter({
+        region: 'us-east-1',
+        endpoint: 'http://0.0.0.0:4566'
+    });
 
     describe('deleteMessage', () => {
         it('should delete a messsage from a custom queue url provided', async () => {
@@ -27,7 +30,7 @@ describe('SQS', () => {
 });
 
 const sendMessageToQueue = async (queueUrl: string) => {
-    const sqs = new SQS();
+    const sqs = new SQS({ region: 'us-east-1' });
 
     return sqs.sendMessage({
         MessageBody: 'any message',
@@ -36,7 +39,7 @@ const sendMessageToQueue = async (queueUrl: string) => {
 };
 
 const receiveMessagesQueue = async (queueUrl: string) => {
-    const sqs = new SQS();
+    const sqs = new SQS({ region: 'us-east-1' });
 
     const { Messages } = await sqs.receiveMessage({
         QueueUrl: queueUrl
