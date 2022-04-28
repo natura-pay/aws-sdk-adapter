@@ -11,7 +11,7 @@ describe('SQS', () => {
 
     describe('deleteMessage', () => {
         it('should delete a messsage from a custom queue url provided', async () => {
-            const customQueueUrl = 'http://localhost:4566/000000000000/custom-queue-test-dev';
+            const customQueueUrl = 'http://0.0.0.0:4566/000000000000/custom-queue-test-dev';
     
             await sendMessageToQueue(customQueueUrl);
             const [message] = await receiveMessagesQueue(customQueueUrl);
@@ -33,7 +33,7 @@ const sendMessageToQueue = async (queueUrl: string) => {
         MessageBody: 'any message',
         QueueUrl: queueUrl
     }).promise();
-}
+};
 
 const receiveMessagesQueue = async (queueUrl: string) => {
     const sqs = new SQS();
@@ -43,4 +43,4 @@ const receiveMessagesQueue = async (queueUrl: string) => {
     }).promise();
 
     return Messages ?? [];
-}
+};
