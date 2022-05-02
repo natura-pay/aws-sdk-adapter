@@ -46,6 +46,11 @@
     "sourceMap": true,
     "instrument": true
   },
+  "jestSonar": {
+    "reportPath": "./reports/coverage",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
   "files": [
     "LICENSE",
     "README.md",
